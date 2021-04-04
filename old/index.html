@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CookieCal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.7.0/dist/umd/supabase.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <script src="scripts/env.js"></script>
+    <script src="scripts/main.js"></script>
+</head>
+
+<body class="bg-blue-300" >
+
+    <div class='text-4xl text-center m-10'>CookieCal</div>
+    <div id='menu' class='flex flex-col items-center'>
+        
+        <a href='/new-order' class='bg-white hover:bg-gray-100 p-4 text-center block w-1/5 m-2'>
+            Create New Order
+        </a>
+        <a href='#' class='bg-white hover:bg-gray-100 p-4 text-center block w-1/5 m-2'>
+            Manage Existing Orders
+        </a>
+        <a href='#' class='bg-white hover:bg-gray-100 p-4 text-center block w-1/5 m-2'>
+            See This Week's Orders
+        </a>
+        <a href='#' class='bg-white hover:bg-gray-100 p-4 text-center block w-1/5 m-2'>
+            Modify Settings
+        </a>
+    </div>
+
+</body>
+
+</html>

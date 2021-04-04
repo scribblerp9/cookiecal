@@ -1,3 +1,11 @@
+{% assign xData = '' %}
+{% assign xInit = '' %}
+
+{% if componentData == true %} 
+  {% assign xData = 'componentData()' %}
+  {% assign xInit = 'init()' %}
+{% endif %}
+
 <!DOCTYPE html>
 <html class="text-gray-900 antialiased leading-tight" lang="en">
   <head>
@@ -6,17 +14,18 @@
   <body
     class="min-h-screen bg-white"
     data-env="{{ node.env }}"
-    x-data="{ open: false }"
-    x-init="() => { setTimeout(() => { open = true }, 1500); }"
+    x-data="{{ xData }}"
+    x-init="{{ xInit }}"
   >
     {% include "partials/site-header.html" %}
 
     <div class="py-10">
-      {% block content %}{% endblock %}
+      {{ content }}
     </div>
 
-    {% include "partials/banner.html" %}
+    <!-- {% include "partials/banner.html" %} -->
 
     <script type="module" src="/scripts/index.js"></script>
+
   </body>
 </html>

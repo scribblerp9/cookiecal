@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CookieCal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.7.0/dist/umd/supabase.min.js"></script>
+    <link href="https://unpkg.com/@tailwindcss/forms/dist/forms.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <script src="src/js/env.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/newOrder.js"></script>
+</head>
+
+<body class="" x-data="componentData()" x-init="init()">
+    <div class='text-4xl text-center m-10'>Add Order</div>
+    <div id='form' class="grid grid-cols-3 gap-x-6 gap-y-4 w-1/2 m-auto items-center">
+        <div class="justify-self-end">Customer Name</div>
+        <input type="text" x-model="orderData.customerName" placeholder="Jo Bloe"
+            class="col-span-2 block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+        <div class="col-span-3 text-2xl justify-self-center">Cookies</div>
+        <div>
+            <div>Effort: <span x-text="orderData.effortScore"></span></div>
+        </div>
+        <div>
+            <div>Quote: $<span x-text="orderData.quote"></span></div>
+        </div>
+        <button x-on:click="addDesign()" class="border border-black p-2 rounded-md justify-self-center">
+            Add Design</button>
+        <template x-for="design in orderData.designs" :key="design">
+            <div class="col-span-3 grid grid-cols-4 gap-x-6 gap-y-4 items-center">
+                <div class="justify-self-end">Design Name</div>
+                <input x-model="design.name" type="text" placeholder="Dinosaur Head"
+                    class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <div class="justify-self-end">Number of Cookies</div>
+                <input x-model.number="design.numCookies" x-on:input="update()" type="text" placeholder="1234"
+                    class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <div class="justify-self-end">Number of Colours</div>
+                <input x-model.number="design.numColours" type="text" x-on:input="update()" placeholder="1234"
+                    class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <div class="justify-self-end">Shape</div>
+                <select x-model.number="design.shape" x-on:input="update()"
+                    class="block rounded-md border-gray-300 shadow-sm p-2 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="">Choose...</option>
+                    <template x-for="shape in shapes" :key="shape">
+                        <option :value="shape.id" x-text="shape.name"></option>
+                    </template>
+                </select>
+                <div class="justify-self-end">Complexity</div>
+                <select x-model.number="design.complexity" x-on:input="update()"
+                    class="block rounded-md border-gray-300 shadow-sm p-2 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="">Choose...</option>
+                    <template x-for="complexityLevel in complexityLevels" :key="complexityLevel">
+                        <option :value="complexityLevel.id" x-text="complexityLevel.name"></option>
+                    </template>
+                </select>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>

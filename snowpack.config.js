@@ -13,6 +13,7 @@ module.exports = {
         watch: '$1 --watch',
       },
     ],
+    "@snowpack/plugin-dotenv",
   ],
   packageOptions: {
     NODE_ENV: true,

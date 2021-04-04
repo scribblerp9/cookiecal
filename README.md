@@ -1,4 +1,6 @@
-# 📦 11st-Starter-Kit
+# 🍪🗓 CookieCal
+
+Based on 11st-Starter-Kit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ec6da587-72ba-490a-ad4b-167802a9c197/deploy-status)](https://app.netlify.com/sites/11st-starter-kit/deploys)
